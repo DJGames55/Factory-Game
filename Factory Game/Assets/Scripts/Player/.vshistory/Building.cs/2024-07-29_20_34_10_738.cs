@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class Building : MonoBehaviour
@@ -258,16 +257,14 @@ public class Building : MonoBehaviour
 
     public Vector3 GetSelectedPosition()
     {
-        Vector2 mousePos = Mouse.current.position.ReadValue();
-
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = _camera.nearClipPlane;
         Ray ray = _camera.ScreenPointToRay(mousePos);
         RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, 25f, placementLayerMask))
+        if (Physics.Raycast(ray, out hit, 25, placementLayerMask))
         {
             lastPosition = hit.point;
         }
-
         return lastPosition;
     }
 }

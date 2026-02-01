@@ -21,6 +21,13 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
         }
     }
 
+    private void OnDisable()
+    {
+        gameinput.Gameplay.Disable();
+        gameinput.UI.Disable();
+        gameinput.Build.Disable();
+    }
+
     public void SetGameplay()
     {
         Cursor.lockState = CursorLockMode.Locked;
