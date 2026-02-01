@@ -1,0 +1,70 @@
+.menu {
+    background-color: rgb(115, 115, 115);
+    width: 24%;
+    height: 74%;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-top-left-radius: 80px;
+    border-bottom-left-radius: 80px;
+    border-top-right-radius: 80px;
+    border-bottom-right-radius: 80px;
+    border-left-width: 8px;
+    border-right-width: 8px;
+    border-top-width: 8px;
+    border-bottom-width: 8px;
+    margin-left: 9px;
+    margin-right: 9px;
+    margin-top: 9px;
+    margin-bottom: 9px;
+    align-items: auto;
+    justify-content: space-around;
+    flex-direction: column;
+    align-self: auto;
+}
+
+.unity-text-element {
+    font-size: 40px;
+    -unity-font-style: normal;
+    -unity-text-align: middle-center;
+}
+
+.unity-button {
+    background-color: rgb(77, 166, 250);
+    border-left-width: 3px;
+    border-right-width: 3px;
+    border-top-width: 3px;
+    border-bottom-width: 3px;
+    border-top-left-radius: 28px;
+    border-bottom-left-radius: 28px;
+    border-top-right-radius: 28px;
+    border-bottom-right-radius: 28px;
+    margin-left: 11px;
+    margin-right: 11px;
+    margin-top: 11px;
+    margin-bottom: 11px;
+    padding-left: 17px;
+    padding-right: 17px;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    align-self: center;
+    transition-property: scale, background-color;
+    transition-duration: 0.25s, 0.15s;
+    transition-timing-function: ease-in-out, ease-in-out;
+}
+
+.unity-button:hover {
+    scale: 1.1 1.1;
+}
+
+.unity-button:active {
+    background-color: rgb(235, 223, 31);
+}
+
+.unity-text-element {
+}

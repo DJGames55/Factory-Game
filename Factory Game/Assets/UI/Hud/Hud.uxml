@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="Actions" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); justify-content: flex-end; align-items: center;">
+        <ui:Label tabindex="-1" text="This is an Action Prompt" display-tooltip-when-elided="true" name="ActionPrompt" style="font-size: 65px; -unity-text-align: middle-center; width: 100%; height: 10%;" />
+    </ui:VisualElement>
+</ui:UXML>

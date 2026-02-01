@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Build%20Menu/USS/buildMenu.uss?fileID=7433441132597879392&amp;guid=6793b5d542b098343860defa024552c4&amp;type=3#buildMenu" />
+    <ui:VisualElement name="BuildMenuBackground" style="flex-grow: 1; background-color: rgba(65, 170, 233, 0.48); justify-content: center; align-items: center; flex-direction: row;">
+        <ui:VisualElement name="TypeMenu" class="menu" style="flex-direction: column; width: 20%; margin-right: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; padding-right: 10px; padding-left: 10px;">
+            <ui:ScrollView name="TypeScrollMenu" style="flex-grow: 1;">
+                <ui:Button text="Other" display-tooltip-when-elided="true" name="OtherButton" />
+            </ui:ScrollView>
+        </ui:VisualElement>
+        <ui:VisualElement name="BuildMenu" class="menu" style="margin-left: 0; border-bottom-left-radius: 0; border-top-left-radius: 0; border-left-width: 0;">
+            <ui:ScrollView name="BuildScrollMenu" style="flex-grow: 1;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

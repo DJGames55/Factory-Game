@@ -1,0 +1,63 @@
+using UnityEngine;
+using UnityEngine.UIElements;
+
+public class GameManager : MonoBehaviour
+{
+    [SerializeField] private InputReader _input;
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject player;
+
+    public float sens;
+
+    private void Start()
+    {
+        _input.PauseEvent += HandlePause;
+        _input.ResumeEvent += HandleResume;
+
+        SensChange();
+    }
+
+    private void HandlePause()
+    {
+        interactText.enabled = false;
+        pauseMenu.SetActive(true);
+    }
+
+    private void HandleResume()
+    {
+        interactText.enabled = true;
+        pauseMenu.SetActive(false);
+    }
+
+    public void SensChange()
+    {
+        sens = sensSlider.GetComponent<Slider>().value;
+        sensText.text = $"Sensitivity: {sens}";
+        if (usingController)
+        {
+            sens = sens * 10;
+        }
+    }
+    public void useController()
+    {
+        if (usingController)
+        {
+            controllerText.text = @"Use Controller
+No";
+            usingController = false;
+            SensChange();
+        }
+        else 
+        {
+            controllerText.text = @"Use Controller
+Yes";
+            usingController = true;
+            SensChange();
+        }
+    }
+
+    public void resetPos()
+    {
+        player.transform.position = Vector3.zero;
+    }
+}

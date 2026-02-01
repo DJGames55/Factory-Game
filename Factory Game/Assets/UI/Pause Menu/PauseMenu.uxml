@@ -1,0 +1,19 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Pause%20Menu/USS/menu.uss?fileID=7433441132597879392&amp;guid=0b8aee951e8bd0449aed087094d434db&amp;type=3#menu" />
+    <Style src="project://database/Assets/UI/Pause%20Menu/USS/OptionsMenu.uss?fileID=7433441132597879392&amp;guid=cc1c918ce0bada6478e56661ab9f37a2&amp;type=3#OptionsMenu" />
+    <ui:VisualElement name="PauseBackground" style="flex-grow: 1; justify-content: center; align-items: center; background-color: rgba(0, 0, 0, 0.52); align-self: auto; display: flex;">
+        <ui:VisualElement name="Menu" class="menu" style="display: none;">
+            <ui:Button text="Resume" display-tooltip-when-elided="true" name="ResumeButton" />
+            <ui:Button text="Options" display-tooltip-when-elided="true" name="OptionsButton" />
+            <ui:Button text="Main Menu" display-tooltip-when-elided="true" name="MainMenuButton" />
+        </ui:VisualElement>
+        <ui:VisualElement name="OptionsMenu" class="menu" style="display: flex;">
+            <ui:VisualElement name="SliderElement" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); width: 90%; align-self: center; height: 15%;">
+                <ui:Label tabindex="-1" text="Sensitivity: 5" name="SliderLabel" display-tooltip-when-elided="true" />
+                <ui:SliderInt picking-mode="Ignore" label="SliderInt" value="5" high-value="15" name="SensSlider" low-value="1" class="slider" />
+            </ui:VisualElement>
+            <ui:Button text="Reset Position" display-tooltip-when-elided="true" name="ResetPosButton" />
+            <ui:Button text="Back" display-tooltip-when-elided="true" name="BackButton" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
