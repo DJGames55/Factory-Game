@@ -30,6 +30,8 @@ public class Interact : MonoBehaviour
 
         int holdLayer = LayerMask.NameToLayer("holdLayer");
         mainCamera.cullingMask |= (1 << holdLayer);
+
+        interactText = _UIReader.actionPrompt;
     }
 
     public void HandleInteract()
