@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 using System.Collections;
+using Unity.VisualScripting;
+using System.Security.Cryptography;
 
 public class Building : MonoBehaviour
 {
@@ -41,16 +43,8 @@ public class Building : MonoBehaviour
 
         if (isBuilding && objectBlueprint != null)
         {
-            if (objectBlueprint.gameObject.GetComponent<ObjectType>().objectHeight != 0)
-            {
-                float yPos = (float)(gridPosition.y + objectBlueprint.gameObject.GetComponent<ObjectType>().objectHeight - 0.5);
-                objectBlueprint.transform.position = new Vector3((float)(gridPosition.x + 0.5), yPos, (float)(gridPosition.z + 0.5));
-            }
-            else
-            {
-                float yPos = (float)(gridPosition.y + objectBlueprint.gameObject.GetComponent<ObjectType>().objectHeight);
-                objectBlueprint.transform.position = new Vector3((float)(gridPosition.x + 0.5), yPos, (float)(gridPosition.z + 0.5));
-            }
+            float blueprintHeight = objectBlueprint.gameObject.GetComponent<ObjectType>().objectHeight;
+            objectBlueprint.transform.position = new Vector3((float)(gridPosition.x + 0.5), (float)(gridPosition.y + blueprintHeight/2), (float)(gridPosition.z + blueprintHeight/2));
         }
     }
 
@@ -108,6 +102,17 @@ public class Building : MonoBehaviour
         blueprintCollider = objectBlueprint.GetComponent<Collider>();
         if (blueprintCollider != null) { blueprintCollider.isTrigger = true; }
 
+        if (objectBlueprint.transform.childCount != 0)
+        {
+            foreach (Transform child in objectBlueprint.transform)
+            {
+                if (child.GetComponent<Collider>() != null)
+                {
+                    child.GetComponent<Collider>().isTrigger = true;
+                }
+            }
+        }
+
         SetBluePrint();
         isBuilding = true;
     }
@@ -137,6 +142,9 @@ public class Building : MonoBehaviour
                 child.gameObject.layer = 2;
             }
         }
+
+        objectBlueprint.AddComponent<Blueprint>();
+        objectBlueprint.GetComponent<Blueprint>().buildingScript = transform.GetComponent<Building>();
     }
 
     public void StopPlacingObject()
@@ -155,9 +163,9 @@ public class Building : MonoBehaviour
             placedObject.GetComponent<ObjectType>().Destoyable = true;
 
             // Sets Placed Objects Location
-            Vector3 angles = holdPosition.transform.eulerAngles;
+            Vector3 angles = objectBlueprint.transform.eulerAngles;
             angles.x = 0f;
-            placedObject.transform.SetPositionAndRotation(holdPosition.transform.position, Quaternion.Euler(angles));
+            placedObject.transform.SetPositionAndRotation(objectBlueprint.transform.position, Quaternion.Euler(angles));
 
             _gameManager.Resume();
             isBuilding = false;
@@ -167,45 +175,24 @@ public class Building : MonoBehaviour
         }
         else if (!canPlace)
         {
-            StartCoroutine(UnableToPlace());
+            UnableToPlace();
         }
     }
 
 
     // Check Can Place
     #region Check Can Place
-    private void OnTriggerEnter(Collider collider)
+    public void BlueprintStateChange(bool placeable)
     {
-        Debug.Log("collider " + collider);
-        if (isBuilding && collider == blueprintCollider)
-        {
-            Debug.Log("blue collider" + collider);
-            canPlace = false;
-        }
-    }
-
-    private void OnTriggerExit(Collider collider)
-    {
-        if (isBuilding && collider == blueprintCollider)
-        {
-            canPlace = true;
-            AbleToPlace();
-        }
-    }
-
-    private void OnTriggerStay(Collider collider)
-    {
-        if (isBuilding && collider == blueprintCollider)
-        {
-            canPlace = false;
-        }
+        if (!isBuilding) return;
+        canPlace = placeable;
+        if (!canPlace) UnableToPlace();
+        else AbleToPlace();
     }
     #endregion Check Can Place
 
-    private IEnumerator UnableToPlace()
+    private void UnableToPlace()
     {
-        _interact.HoldingCameraStop();
-
         // Change Material
         Renderer renderer = objectBlueprint.GetComponent<Renderer>();
         if (renderer != null)
@@ -225,9 +212,6 @@ public class Building : MonoBehaviour
                 }
             }
         }
-
-        yield return new WaitForSeconds(1);
-        _interact.HoldingCameraSet();
     }
 
     private void AbleToPlace()

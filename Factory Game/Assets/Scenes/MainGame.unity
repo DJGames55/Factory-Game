@@ -553,7 +553,7 @@ MonoBehaviour:
   isGround: 0
   Other: 1
   Destoyable: 0
-  objectHeight: 0
+  objectHeight: 2
 --- !u!65 &341109796
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1142,8 +1142,8 @@ MonoBehaviour:
   - {fileID: 1649056035}
   - {fileID: 533035004381748484, guid: ff2af935017653d47aeebd84eca47da2, type: 3}
   - {fileID: 1026697231547268079, guid: 075a3354b07345043963019a15c35c62, type: 3}
-  blueprintMaterial: {fileID: 0}
-  clearRedMaterial: {fileID: 0}
+  blueprintMaterial: {fileID: 2100000, guid: d58c0a62c6220f742bf44285e14ac5e8, type: 2}
+  clearRedMaterial: {fileID: 2100000, guid: 9bad167b5a9ca0143833c52eeab3bddc, type: 2}
   _input: {fileID: 11400000, guid: 29949833fb826524ca06e38ee865c723, type: 2}
   _gameManager: {fileID: 320659343}
   _player: {fileID: 684733480}
@@ -2630,7 +2630,7 @@ MonoBehaviour:
   isGround: 0
   Other: 1
   Destoyable: 0
-  objectHeight: -0.5
+  objectHeight: 5
 --- !u!65 &1649056037
 BoxCollider:
   m_ObjectHideFlags: 0
