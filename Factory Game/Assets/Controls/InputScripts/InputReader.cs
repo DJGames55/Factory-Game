@@ -53,7 +53,7 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
     }
 
     // Movement
-    #region Movement
+#region Movement
     public event Action<Vector2> MoveEvent;
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -82,8 +82,9 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
     {
         if (context.phase == InputActionPhase.Started) { JumpEvent?.Invoke(); }
     }
-    #endregion Movement
+#endregion Movement
 
+#region Other Player
     // Interact
     public event Action InteractEvent;
     public void OnInteract(InputAction.CallbackContext context)
@@ -111,9 +112,10 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
             SetGameplay();
         }
     }
+#endregion Other Player
 
     // Building
-    #region Building
+#region Building
     public event Action OpenBuildEvent;
     public void OnOpenBuild(InputAction.CallbackContext context)
     {
@@ -131,5 +133,5 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
     {
         if (context.phase == InputActionPhase.Started) PlaceObjectEvent?.Invoke();
     }
-    #endregion Building
+#endregion Building
 }

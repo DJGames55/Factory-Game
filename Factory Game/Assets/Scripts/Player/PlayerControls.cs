@@ -51,7 +51,7 @@ public class PlayerControls : MonoBehaviour
         Jump();
     }
 
-    #region Movement
+#region Movement
     private void Move()
     {
         if (moveDirection == Vector2.zero)
@@ -131,5 +131,5 @@ public class PlayerControls : MonoBehaviour
             rb.AddForce(new Vector3(0, jumpHeight, 0), ForceMode.Impulse);
         }
     }
-    #endregion Movement
+#endregion Movement
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using System.Collections;
 
 public class Building : MonoBehaviour
 {
@@ -55,7 +56,7 @@ public class Building : MonoBehaviour
 
     private void Start()
     {
-        ///_input.PlaceObjectEvent += PlaceObject;
+        _input.PlaceObjectEvent += PlaceObject;
     }
 
     private void OnEnable()
@@ -143,7 +144,6 @@ public class Building : MonoBehaviour
         Destroy(objectBlueprint);
     }
 
-    /***
     private void PlaceObject()
     {
         if (isBuilding && canPlace)
@@ -254,7 +254,6 @@ public class Building : MonoBehaviour
             }
         }
     }
-    ***/
 
     public Vector3 GetSelectedPosition()
     {

@@ -141,7 +141,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
                     ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""429f2376-7a10-42a3-a21b-762c4bda9fab"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -409,7 +409,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
                     ""name"": ""Resume"",
                     ""type"": ""Button"",
                     ""id"": ""17fb4618-4c6b-44ed-941d-af12dab2d48f"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false

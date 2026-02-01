@@ -38,8 +38,8 @@ public class GameManager : MonoBehaviour
         actionText.style.display = DisplayStyle.None;
         // Buttons
         // Menu
-        _UIReader.resumeButton.clicked += Resume;
-        _UIReader.optionsButton.clicked += Options;
+        _UIReader.resumeButton.clicked += Resume; 
+        _UIReader.optionsButton.clicked += Options; 
         _UIReader.mainMenuButton.clicked += HandleMainMenu;
         // Options
         _UIReader.sensSlider.RegisterValueChangedCallback(OnSensChanged);
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         _input.SetGameplay();
         _UIReader.pauseBackground.style.display = DisplayStyle.None;
         _UIReader.buildMenuBackground.style.display = DisplayStyle.None;
-        UnPauseGame();
+        ResumeGame();
     }
 
     // Pause Menu
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         gamePaused = true;
     }
 
-    public void UnPauseGame()
+    public void ResumeGame()
     {
         Time.timeScale = 1;
         gamePaused = false;
@@ -134,7 +134,7 @@ public class GameManager : MonoBehaviour
         _input.SetBuild();
         _UIReader.buildMenuBackground.style.display = DisplayStyle.None;
         _interact.isBuilding = true;
-        UnPauseGame();
+        ResumeGame();
     }
 
     // Exits Building "Placing" mode
