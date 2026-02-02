@@ -5,13 +5,17 @@ public class Blueprint : MonoBehaviour
     public Building buildingScript;
     private bool canPlace = false;
 
+    public bool CheckPlacement()
+    {
+        Debug.Log(canPlace);
+        return canPlace;
+    }
+
 
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.isTrigger) return;
         canPlace = false; 
-        Debug.Log(collider); 
-        Debug.Log("Ent");
         buildingScript.BlueprintStateChange(canPlace);
     }
 
@@ -19,8 +23,6 @@ public class Blueprint : MonoBehaviour
     {
         if (collider.isTrigger) return;
         canPlace = true; 
-        Debug.Log(collider); 
-        Debug.Log("Ext");
         buildingScript.BlueprintStateChange(canPlace);
     }
 
@@ -28,8 +30,6 @@ public class Blueprint : MonoBehaviour
     {
         if (collider.isTrigger) return;
         canPlace = false; 
-        Debug.Log(collider); 
-        Debug.Log("Sty");
         buildingScript.BlueprintStateChange(canPlace);
     }
 }
