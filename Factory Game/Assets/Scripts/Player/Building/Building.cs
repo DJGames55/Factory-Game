@@ -155,7 +155,7 @@ public class Building : MonoBehaviour
     private void PlaceObject()
     {
         Blueprint blueprintScript = objectBlueprint.GetComponent<Blueprint>();
-        if (isBuilding && canPlace && blueprintScript.CheckPlacement())
+        if (isBuilding && blueprintScript.CheckPlacement())
         {
             // Creates Object
             GameObject placedObject = Instantiate(placingObject);

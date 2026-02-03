@@ -3,47 +3,38 @@ using UnityEngine;
 public class Blueprint : MonoBehaviour
 {
     public Building buildingScript;
-    private bool canPlace = false;
     public Collider placementCollider;
     public LayerMask blockingLayers;
+
+    private bool canPlace;
+    private void Awake()
+    {
+        if (placementCollider == null)
+        {
+            placementCollider = GetComponent<Collider>();
+        }
+    }
 
     public bool CheckPlacement()
     {
         Collider[] hits = Physics.OverlapBox(
             placementCollider.bounds.center,
-            placementCollider.bounds.extents,
+            placementCollider.bounds.extents * 0.95f, // slightly smaller to avoid edge touching
             placementCollider.transform.rotation,
-            blockingLayers
+            blockingLayers,
+            QueryTriggerInteraction.Ignore
         );
 
-        if (hits.Length == 0) canPlace = true;
-        else canPlace = false;
+        canPlace = true;
 
-        Debug.Log(canPlace);
+        foreach (Collider hit in hits)
+        {
+            if (hit == placementCollider) continue; // ignore self
+            canPlace = false;
+            break;
+        }
+
+        buildingScript.BlueprintStateChange(canPlace);
         return canPlace;
-    }
-
-
-
-
-    private void OnTriggerEnter(Collider collider)
-    {
-        if (collider.isTrigger) return;
-        canPlace = false; 
-        buildingScript.BlueprintStateChange(canPlace);
-    }
-
-    private void OnTriggerExit(Collider collider)
-    {
-        if (collider.isTrigger) return;
-        canPlace = true; 
-        buildingScript.BlueprintStateChange(canPlace);
-    }
-
-    private void OnTriggerStay(Collider collider)
-    {
-        if (collider.isTrigger) return;
-        canPlace = false; 
-        buildingScript.BlueprintStateChange(canPlace);
     }
 }
