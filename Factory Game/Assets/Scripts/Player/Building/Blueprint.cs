@@ -4,12 +4,26 @@ public class Blueprint : MonoBehaviour
 {
     public Building buildingScript;
     private bool canPlace = false;
+    public Collider placementCollider;
+    public LayerMask blockingLayers;
 
     public bool CheckPlacement()
     {
+        Collider[] hits = Physics.OverlapBox(
+            placementCollider.bounds.center,
+            placementCollider.bounds.extents,
+            placementCollider.transform.rotation,
+            blockingLayers
+        );
+
+        if (hits.Length == 0) canPlace = true;
+        else canPlace = false;
+
         Debug.Log(canPlace);
         return canPlace;
     }
+
+
 
 
     private void OnTriggerEnter(Collider collider)
