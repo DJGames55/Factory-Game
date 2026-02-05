@@ -1,0 +1,29 @@
+OVDF v1.1
+ItemData, Assembly-CSharp
+MetaGuid:39ea9a909dc789749bbb82bad522d825
+
+# $W2L5TddmoBFThcX8v2cD7d
+Position: $root:1
++ [Sirenix.OdinInspector.HorizontalGroupAttribute]
+	MarginRight = 2.99
+	Gap = 21
+
+# maxStack
+Position: $TmNmhCFwV5AzRjtAddwR29:1
++ [Sirenix.OdinInspector.HideIfAttribute]
+	Condition = "@!stackable"
+
+# OnValidate()
+Visibility: Hidden
+
+# icon
+Position: $W2L5TddmoBFThcX8v2cD7d:1
++ [Sirenix.OdinInspector.PreviewFieldAttribute]
+	Height = 100
+	FilterMode = Bilinear
+
+# itemName
+Position: $W2L5TddmoBFThcX8v2cD7d:0
+
+# stackable
+Position: $TmNmhCFwV5AzRjtAddwR29:0

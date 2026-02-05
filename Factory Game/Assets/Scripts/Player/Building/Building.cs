@@ -2,8 +2,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 using System.Collections;
-using Unity.VisualScripting;
-using System.Security.Cryptography;
 
 public class Building : MonoBehaviour
 {

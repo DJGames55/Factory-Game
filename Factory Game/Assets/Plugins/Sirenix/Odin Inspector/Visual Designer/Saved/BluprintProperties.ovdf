@@ -1,0 +1,21 @@
+OVDF v1.1
+BluprintProperties, Assembly-CSharp
+MetaGuid:b03bf3666dd2cbb4794e5dff0ab7e2d9
+
+# $8ZDyLovbc3qPujN2TxwV9c
+Position: $root:0
++ [Sirenix.OdinInspector.BoxGroupAttribute]
+
+# name
+Position: $8ZDyLovbc3qPujN2TxwV9c:0
+
+# description
+Position: $8ZDyLovbc3qPujN2TxwV9c:1
+
+# image
+Position: $H7TsmBU1zhyspuHkHrahVh:0
+
+# buildCost
+Position: $H7TsmBU1zhyspuHkHrahVh:1
++ [UnityEngine.RangeAttribute]
+	max = 20
